@@ -5,10 +5,10 @@
       "type": "shell",
       "label": "create bin folder for active file",
       "command": "mkdir",
-      "args": ["-p", "${workspaceFolder}/bin/${relativeFileDirname}"],
+      "args": ["-p", "${workspaceFolder}/${relativeFileDirname}/bin/"],
       "windows": {
-        "command": "if not exist ${workspaceFolder}\\bin\\${relativeFileDirname}\\ mkdir",
-        "args": ["${workspaceFolder}\\bin\\${relativeFileDirname}"]
+        "command": "if not exist ${workspaceFolder}\\${relativeFileDirname}\\bin\\ mkdir",
+        "args": ["${workspaceFolder}\\${relativeFileDirname}\\bin\\"]
       },
       "group": "none"
     },
@@ -25,7 +25,7 @@
         "-g",
         "${file}",
         "-o",
-        "${workspaceFolder}/bin/${relativeFileDirname}/${fileBasenameNoExtension}"
+        "${workspaceFolder}/${relativeFileDirname}/bin/${fileBasenameNoExtension}"
       ],
       "windows": {
         "command": "C:/Program Files/CodeBlocks/MinGW/bin/g++.exe",
@@ -37,7 +37,20 @@
           "-g",
           "${file}",
           "-o",
-          "${workspaceFolder}\\bin\\${relativeFileDirname}\\${fileBasenameNoExtension}.exe"
+          "${workspaceFolder}\\${relativeFileDirname}\\bin\\${fileBasenameNoExtension}.exe"
+        ]
+      },
+      "linux": {
+        "command": "/usr/bin/g++",
+        "args": [
+          // "-std=c++17",
+          // "-stdlib=libc++",
+          "-I",
+          "${workspaceFolder}/lib",
+          "-g",
+          "${file}",
+          "-o",
+          "${workspaceFolder}/${relativeFileDirname}/bin/${fileBasenameNoExtension}"
         ]
       },
       "options": {

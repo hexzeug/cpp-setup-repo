@@ -8,21 +8,30 @@
       "name": "Mac: build and debug active c/c++ file",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "program": "${workspaceFolder}/${relativeFileDirname}/bin/${fileBasenameNoExtension}",
       "args": [],
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/${relativeFileDirname}",
       "preLaunchTask": "Mac/Win32: build active c/c++ file to /bin/ folder"
     },
     {
       "name": "Win32: build and debug active c/c++ file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "program": "${workspaceFolder}/${relativeFileDirname}/bin/${fileBasenameNoExtension}",
       "args": [],
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}\\${relativeFileDirname}",
       "preLaunchTask": "Mac/Win32: build active c/c++ file to /bin/ folder",
       "MIMode": "gdb",
       "miDebuggerPath": "C:\\Program Files\\CodeBlocks\\MinGW\\bin\\gdb.exe"
+    },
+    {
+      "name": "Linux: build and debug active c/c++ file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/${relativeFileDirname}/bin/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${workspaceFolder}/${relativeFileDirname}",
+      "preLaunchTask": "Mac/Win32: build active c/c++ file to /bin/ folder"
     }
   ]
 }
